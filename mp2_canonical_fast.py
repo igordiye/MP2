@@ -87,7 +87,7 @@ def compute_mp2_energy(num_bf, nocc, g2e_mo, orb_e, ehf):
     orb_e ::: orbital energies as obtained from HF SCF procedure
     ehf :: HF energy
     """
-
+    start_time = time.clock()
     E = 0.0
     for i in range(nocc):
         for j in range(nocc):
@@ -98,6 +98,7 @@ def compute_mp2_energy(num_bf, nocc, g2e_mo, orb_e, ehf):
 
     print('MP2 correlation energy: {:20.15f}\n'.format(E))
     print('Total MP2 energy: {:20.15f}\n'.format(E + ehf))
+    print(time.clock() - start_time, "seconds")
     return E
 
 print('MP2 energy = ', compute_mp2_energy(num_bf, nocc, g2e_mo, orb_e, ehf))
