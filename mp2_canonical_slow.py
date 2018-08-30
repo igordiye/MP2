@@ -57,13 +57,13 @@ ehf = e
 #######################################################
 
 #Perform integral transformation for AO basis to MO basis
-def transform_integrals_nobby(num_bf, g2e_ao, coeff_mat):
-    "Noddy (O(N^8)) AO to MO integral transformation"
+def transform_integrals_slow(num_bf, g2e_ao, coeff_mat):
+    """Slow (O(N^8)) AO to MO integral transformation
 
-    """
-    num_bf = number of basis functions
-    g2e_ao = two-electron integrals in AO basis
-    coeff_mat =  Coefficient matrix
+
+    num_bf :: number of basis functions
+    g2e_ao :: two-electron integrals in AO basis
+    coeff_mat ::  Coefficient matrix
     """
     start_time = time.clock()
     g2e_mo = np.zeros(g2e_ao.shape)
@@ -81,7 +81,7 @@ def transform_integrals_nobby(num_bf, g2e_ao, coeff_mat):
     print(time.clock() - start_time, "seconds")
     return g2e_mo
 
-# print(transform_integrals_nobby(num_bf, eri, coeff_mat) )
+# print(transform_integrals_slow(num_bf, eri, coeff_mat) )
 
 
 def transform_integrals_einsum(ge2_ao, coeff_mat):
@@ -146,7 +146,7 @@ g2e_mo = transform_integrals(num_bf, g2e_ao, coeff_mat)
 # g2e_mo = transform_integrals_einsum(g2e_ao, coeff_mat)
 def compute_mp2_energy(num_bf, nocc, g2e_mo, orb_e, ehf):
     """
-    Compute the MP2 energy
+    Computes MP2 energy
 
     num_bf :: number of basis functions
     nocc  :: number of occupied orbitals
