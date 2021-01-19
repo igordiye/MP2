@@ -2,7 +2,9 @@ import numpy as np
 import time
 from pyscf import gto, scf, fci
 
-"""This module transforms AO integrals to MO basis
+"""
+MP2 implementaion
+This module transforms AO integrals to MO basis
 Obtains RHF energy and MO coefficients from pyscf
 and calculates second order Moller Plesset energy
 FAST implementation
