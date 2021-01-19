@@ -1,2 +1,3 @@
 # MP2
-Canonical MP2 - slow implementation
+Canonical MP2 Implementaion
+Fast and slow implementaions
